@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPID Diskominfo Kabupaten Kepulauan Sula</title>
+    <meta name="description" content="Website resmi Pejabat Pengelola Informasi dan Dokumentasi Dinas Komunikasi dan Informatika Kabupaten Kepulauan Sula. Layanan permohonan informasi publik secara online.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A2463',
+                        secondary: '#3E92CC',
+                        accent: '#FF9F0F',
+                        success: '#28A745',
+                        danger: '#DC3545',
+                        light: '#F8F9FA',
+                        dark: '#1D2939'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .header-gradient {
+                background: linear-gradient(135deg, #0A2463 0%, #3E92CC 100%);
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-light">
+    <!-- Top Bar -->
+    <div class="bg-primary text-white py-2 text-sm hidden md:block">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Jl. Trans Sula, Desa Falahu, Kec. Sanana, Kab. Kepulauan Sula, Maluku Utara</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>(0921) 12345</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>ppid@kepulauansula.go.id</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="current-time"></span>
+                </span>
+                <div class="flex items-center gap-3">
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-accent transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-white shadow-md sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="https://picsum.photos/id/237/60/60" alt="Logo Kabupaten Kepulauan Sula" class="h-12 w-12 rounded-full">
+                    <div>
+                        <h1 class="text-base md:text-lg font-bold text-primary">PPID Diskominfo</h1>
+                        <h2 class="text-sm md:text-base font-semibold text-secondary">Kabupaten Kepulauan Sula</h2>
+                        <p class="text-xs text-gray-500 hidden md:block">Pejabat Pengelola Informasi dan Dokumentasi</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden xl:flex items-center gap-1">
+                    <a href="#" class="px-3 py-2 font-medium text-primary border-b-2 border-primary">Beranda</a>
+                    
+                    <!-- Dropdown Profil -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors flex items-center gap-1">
+                            Profil PPID <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Tugas dan Fungsi PPID</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Struktur Organisasi PPID</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Profil Pejabat PPID</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors">Visi dan Misi PPID</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Informasi Publik -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors flex items-center gap-1">
+                            Informasi Publik <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full w-64 bg-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">
+                                Informasi Berkala
+                            </a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">
+                                Informasi Serta Merta
+                            </a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">
+                                Informasi Setiap Saat
+                            </a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">
+                                Informasi Dikecualikan
+                            </a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors">
+                                Daftar Informasi Publik (DIP)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Layanan -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors flex items-center gap-1">
+                            Layanan <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Permohonan Informasi</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Cek Status Permohonan</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Pengajuan Keberatan</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Sengketa Informasi</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors">Permohonan Informasi Offline</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Peraturan -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors flex items-center gap-1">
+                            Peraturan <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Undang-Undang</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Peraturan Pemerintah</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Peraturan KIP</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Peraturan Bupati</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors">SOP PPID</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Laporan -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors flex items-center gap-1">
+                            Laporan <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 top-full w-60 bg-white shadow-lg rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Laporan Tahunan PPID</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors border-b border-gray-100">Laporan Triwulan</a>
+                            <a href="#" class="block px-4 py-3 hover:bg-primary hover:text-white transition-colors">Laporan Pengaduan</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors">FAQ</a>
+                    <a href="#" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors">Kontak</a>
+                </div>
+
+                <!-- Search & Button -->
+                <div class="hidden xl:flex items-center gap-3">
+                    <div class="relative">
+                        <input type="text" placeholder="Cari informasi..." class="w-48 pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <a href="#" class="bg-accent hover:bg-accent/90 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
+                        Permohonan Info
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="xl:hidden text-dark text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="xl:hidden bg-white shadow-inner max-h-0 overflow-hidden transition-all duration-300">
+            <div class="container mx-auto px-4 py-3">
+                <div class="mb-4 relative">
+                    <input type="text" placeholder="Cari informasi..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+                <div class="space-y-1">
+                    <a href="#" class="block px-4 py-3 font-medium text-primary bg-primary/5 rounded-lg">Beranda</a>
+                    
+                    <div class="mobile-dropdown">
+                        <button class="w-full text-left px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg flex justify-between items-center mobile-dropdown-btn">
+                            Profil PPID <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div class="mobile-dropdown-content max-h-0 overflow-hidden transition-all duration-300 pl-4">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Tugas dan Fungsi PPID</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Struktur Organisasi PPID</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Profil Pejabat PPID</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Visi dan Misi PPID</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-dropdown">
+                        <button class="w-full text-left px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg flex justify-between items-center mobile-dropdown-btn">
+                            Informasi Publik <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div class="mobile-dropdown-content max-h-0 overflow-hidden transition-all duration-300 pl-4">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Informasi Berkala</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Informasi Serta Merta</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Informasi Setiap Saat</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Informasi Dikecualikan</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Daftar Informasi Publik (DIP)</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-dropdown">
+                        <button class="w-full text-left px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg flex justify-between items-center mobile-dropdown-btn">
+                            Layanan <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div class="mobile-dropdown-content max-h-0 overflow-hidden transition-all duration-300 pl-4">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Permohonan Informasi</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Cek Status Permohonan</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Pengajuan Keberatan</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Sengketa Informasi</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Permohonan Offline</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-dropdown">
+                        <button class="w-full text-left px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg flex justify-between items-center mobile-dropdown-btn">
+                            Peraturan <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div class="mobile-dropdown-content max-h-0 overflow-hidden transition-all duration-300 pl-4">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Undang-Undang</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Peraturan Pemerintah</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Peraturan KIP</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Peraturan Bupati</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">SOP PPID</a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-dropdown">
+                        <button class="w-full text-left px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg flex justify-between items-center mobile-dropdown-btn">
+                            Laporan <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div class="mobile-dropdown-content max-h-0 overflow-hidden transition-all duration-300 pl-4">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Laporan Tahunan PPID</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Laporan Triwulan</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:text-primary">Laporan Pengaduan</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="block px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg">FAQ</a>
+                    <a href="#" class="block px-4 py-3 font-medium text-dark hover:bg-gray-50 rounded-lg">Kontak</a>
+                    <a href="#" class="block px-4 py-3 font-medium bg-accent text-white rounded-lg text-center mt-4">
+                        Ajukan Permohonan Informasi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="header-gradient relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+        <div class="container mx-auto px-4 py-20 md:py-28 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <span class="inline-block bg-white/20 backdrop-blur text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
+                        Pejabat Pengelola Informasi dan Dokumentasi
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-bold mb-6 text-shadow leading-tight">
+                        PPID Diskominfo Kabupaten Kepulauan Sula
+                    </h1>
+                    <p class="text-lg text-white/90 mb-8 leading-relaxed">
+                        Layanan permohonan informasi publik secara online, cepat, transparan, dan akuntabel sesuai dengan Undang-Undang Keterbukaan Informasi Publik No. 14 Tahun 2008.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="bg-accent hover:bg-accent/90 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+                            <i class="fa-solid fa-file-circle-plus"></i> Ajukan Permohonan Informasi
+                        </a>
+                        <a href="#" class="bg-white/10 backdrop-blur hover:bg-white/20 border border-white/30 text-white px-8 py-3 rounded-full font-semibold transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-list"></i> Daftar Informasi Publik
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <img src="https://picsum.photos/id/1/600/450" alt="Gedung Dinas Diskominfo" class="w-full rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alur Permohonan Informasi -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block text-accent font-semibold mb-2">Alur Layanan</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Alur Permohonan Informasi Publik</h2>
+                <p class="text-gray-600 text-lg">Permohonan informasi publik akan diproses paling lambat 10 hari kerja sejak permohonan diterima.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Langkah 1 -->
+                <div class="bg-light p-6 rounded-2xl text-center card-hover relative">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-user-pen"></i>
+                    </div>
+                    <div class="absolute -top-3 -right-3 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold">1</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Isi Form Permohonan</h3>
+                    <p class="text-gray-600 text-sm">Pemohon mengisi formulir permohonan informasi secara online atau offline di kantor PPID.</p>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="bg-light p-6 rounded-2xl text-center card-hover relative">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                    </div>
+                    <div class="absolute -top-3 -right-3 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold">2</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Verifikasi Permohonan</h3>
+                    <p class="text-gray-600 text-sm">Petugas PPID melakukan verifikasi kelengkapan data dan jenis informasi yang diminta.</p>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="bg-light p-6 rounded-2xl text-center card-hover relative">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <div class="absolute -top-3 -right-3 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold">3</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Proses Pencarian Data</h3>
+                    <p class="text-gray-600 text-sm">Petugas mencari dan menyiapkan informasi yang diminta paling lambat 10 hari kerja.</p>
+                </div>
+
+                <!-- Langkah 4 -->
+                <div class="bg-light p-6 rounded-2xl text-center card-hover relative">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                    </div>
+                    <div class="absolute -top-3 -right-3 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold">4</div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Informasi Diberikan</h3>
+                    <p class="text-gray-600 text-sm">Informasi yang diminta diberikan kepada pemohon dalam bentuk yang sesuai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Informasi Publik -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block text-accent font-semibold mb-2">Kategori Informasi</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Kategori Informasi Publik</h2>
+                <p class="text-gray-600 text-lg">Informasi publik yang tersedia di PPID Diskominfo Kabupaten Kepulauan Sula.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Informasi Berkala -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover">
+                    <div class="bg-primary h-2"></div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-2xl mb-4">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Informasi Berkala</h3>
+                        <p class="text-gray-600 text-sm mb-4">Informasi yang wajib disediakan dan diumumkan secara berkala minimal 6 bulan sekali.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">128 Dokumen</span>
+                            <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                                Lihat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informasi Serta Merta -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover">
+                    <div class="bg-success h-2"></div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-success/10 rounded-xl flex items-center justify-center text-success text-2xl mb-4">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Informasi Serta Merta</h3>
+                        <p class="text-gray-600 text-sm mb-4">Informasi yang harus disediakan dan diumumkan secara langsung karena menyangkut hajat hidup orang banyak.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">42 Dokumen</span>
+                            <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                                Lihat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informasi Setiap Saat -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover">
+                    <div class="bg-secondary h-2"></div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary text-2xl mb-4">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Informasi Setiap Saat</h3>
+                        <p class="text-gray-600 text-sm mb-4">Informasi yang wajib disediakan setiap saat dan dapat diminta kapan saja oleh masyarakat.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">256 Dokumen</span>
+                            <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                                Lihat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informasi Dikecualikan -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover">
+                    <div class="bg-danger h-2"></div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-danger/10 rounded-xl flex items-center justify-center text-danger text-2xl mb-4">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Informasi Dikecualikan</h3>
+                        <p class="text-gray-600 text-sm mb-4">Daftar informasi yang dikecualikan dari publik sesuai dengan ketentuan peraturan perundang-undangan.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">15 Kategori</span>
+                            <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                                Lihat <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistik PPID -->
+    <section class="py-16 header-gradient relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-10 left-10 w-64 h-64 rounded-full bg-white"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-white"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center text-white mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Statistik Layanan PPID Tahun 2024</h2>
+                <p class="text-white/80 text-lg max-w-2xl mx-auto">Data statistik layanan informasi publik PPID Diskominfo Kabupaten Kepulauan Sula.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div class="statistic-item">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-target="328">0</div>
+                    <p class="text-white/80">Permohonan Informasi Diterima</p>
+                </div>
+                <div class="statistic-item">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-target="312">0</div>
+                    <p class="text-white/80">Permohonan Informasi Diproses</p>
+                </div>
+                <div class="statistic-item">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-target="16">0</div>
+                    <p class="text-white/80">Pengajuan Keberatan</p>
+                </div>
+                <div class="statistic-item">
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-target="431">0</div>
+                    <p class="text-white/80">Dokumen Informasi Dipublikasikan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informasi Publik Terbaru + Sidebar -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Daftar Informasi Publik Terbaru -->
+                <div class="lg:col-span-2">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <span class="inline-block text-accent font-semibold mb-1">Informasi Terbaru</span>
+                            <h2 class="text-2xl md:text-3xl font-bold text-primary">Daftar Informasi Publik Terbaru</h2>
+                        </div>
+                        <a href="#" class="hidden md:inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors">
+                            Semua Informasi <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Informasi 1 -->
+                        <div class="bg-light p-6 rounded-xl hover:shadow-md transition-shadow border-l-4 border-primary">
+                            <div class="flex flex-wrap gap-3 mb-3">
+                                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Informasi Berkala</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 15 Juli 2024</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-eye"></i> 1.234 dilihat</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-primary mb-2 hover:text-secondary transition-colors">
+                                <a href="#">Laporan Kinerja Dinas Komunikasi dan Informatika Kabupaten Kepulauan Sula Semester 1 Tahun 2024</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-4">Laporan kinerja Dinas Komunikasi dan Informatika Kabupaten Kepulauan Sula periode Januari sampai Juni 2024.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex gap-3 text-sm">
+                                    <span class="text-gray-500"><i class="fa-regular fa-file-pdf"></i> PDF</span>
+                                    <span class="text-gray-500"><i class="fa-solid fa-download"></i> 245 kali diunduh</span>
+                                </div>
+                                <a href="#" class="text-primary font-medium hover:text-secondary transition-colors flex items-center gap-1">
+                                    <i class="fa-solid fa-download"></i> Unduh
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Informasi 2 -->
+                        <div class="bg-light p-6 rounded-xl hover:shadow-md transition-shadow border-l-4 border-success">
+                            <div class="flex flex-wrap gap-3 mb-3">
+                                <span class="bg-success/10 text-success text-xs font-semibold px-3 py-1 rounded-full">Informasi Serta Merta</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 12 Juli 2024</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-eye"></i> 876 dilihat</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-primary mb-2 hover:text-secondary transition-colors">
+                                <a href="#">Pengumuman Penutupan Jalan Utama Sanana Dalam Rangka Festival Budaya Kepulauan Sula 2024</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-4">Pengumuman mengenai penutupan jalan utama di Kecamatan Sanana pada tanggal 20-23 Juli 2024 dalam rangka acara festival budaya.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex gap-3 text-sm">
+                                    <span class="text-gray-500"><i class="fa-regular fa-file-pdf"></i> PDF</span>
+                                    <span class="text-gray-500"><i class="fa-solid fa-download"></i> 132 kali diunduh</span>
+                                </div>
+                                <a href="#" class="text-primary font-medium hover:text-secondary transition-colors flex items-center gap-1">
+                                    <i class="fa-solid fa-download"></i> Unduh
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Informasi 3 -->
+                        <div class="bg-light p-6 rounded-xl hover:shadow-md transition-shadow border-l-4 border-secondary">
+                            <div class="flex flex-wrap gap-3 mb-3">
+                                <span class="bg-secondary/10 text-secondary text-xs font-semibold px-3 py-1 rounded-full">Informasi Setiap Saat</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 10 Juli 2024</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-eye"></i> 1.567 dilihat</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-primary mb-2 hover:text-secondary transition-colors">
+                                <a href="#">Daftar Harga Tarif Layanan Pemerintah Kabupaten Kepulauan Sula Tahun 2024</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-4">Daftar harga tarif berbagai layanan pemerintah daerah Kabupaten Kepulauan Sula yang berlaku selama tahun 2024.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex gap-3 text-sm">
+                                    <span class="text-gray-500"><i class="fa-regular fa-file-excel"></i> Excel</span>
+                                    <span class="text-gray-500"><i class="fa-solid fa-download"></i> 456 kali diunduh</span>
+                                </div>
+                                <a href="#" class="text-primary font-medium hover:text-secondary transition-colors flex items-center gap-1">
+                                    <i class="fa-solid fa-download"></i> Unduh
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Informasi 4 -->
+                        <div class="bg-light p-6 rounded-xl hover:shadow-md transition-shadow border-l-4 border-primary">
+                            <div class="flex flex-wrap gap-3 mb-3">
+                                <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Informasi Berkala</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 5 Juli 2024</span>
+                                <span class="text-gray-500 text-sm"><i class="fa-regular fa-eye"></i> 765 dilihat</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-primary mb-2 hover:text-secondary transition-colors">
+                                <a href="#">Rencana Kerja Pemerintah Daerah (RKPD) Kabupaten Kepulauan Sula Tahun 2025</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-4">Dokumen Rencana Kerja Pemerintah Daerah Kabupaten Kepulauan Sula untuk tahun anggaran 2025.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex gap-3 text-sm">
+                                    <span class="text-gray-500"><i class="fa-regular fa-file-pdf"></i> PDF</span>
+                                    <span class="text-gray-500"><i class="fa-solid fa-download"></i> 312 kali diunduh</span>
+                                </div>
+                                <a href="#" class="text-primary font-medium hover:text-secondary transition-colors flex items-center gap-1">
+                                    <i class="fa-solid fa-download"></i> Unduh
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center md:hidden">
+                        <a href="#" class="inline-flex items-center gap-2 text-primary font-medium">
+                            Semua Informasi <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-8">
+                    <!-- Form Cek Status Permohonan -->
+                    <div class="bg-primary rounded-2xl p-6 text-white">
+                        <h3 class="text-xl font-bold mb-4">Cek Status Permohonan</h3>
+                        <p class="text-white/80 text-sm mb-4">Masukkan nomor permohonan Anda untuk mengetahui status permohonan informasi.</p>
+                        <form class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Nomor Permohonan" class="w-full px-4 py-3 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-accent/50">
+                            </div>
+                            <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-search"></i> Cek Status
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Pengumuman PPID -->
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-6">Pengumuman PPID</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="block p-4 bg-light rounded-xl hover:shadow-md transition-shadow">
+                                <h4 class="font-semibold text-dark mb-1 hover:text-primary transition-colors">Jadwal Layanan PPID Selama Libur Idul Adha 1445 H</h4>
+                                <p class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 14 Juli 2024</p>
+                            </a>
+                            <a href="#" class="block p-4 bg-light rounded-xl hover:shadow-md transition-shadow">
+                                <h4 class="font-semibold text-dark mb-1 hover:text-primary transition-colors">Peningkatan Sistem Aplikasi PPID Online Tanggal 25 Juli 2024</h4>
+                                <p class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 10 Juli 2024</p>
+                            </a>
+                            <a href="#" class="block p-4 bg-light rounded-xl hover:shadow-md transition-shadow">
+                                <h4 class="font-semibold text-dark mb-1 hover:text-primary transition-colors">Sosialisasi UU KIP Bagi OPD Kabupaten Kepulauan Sula</h4>
+                                <p class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 5 Juli 2024</p>
+                            </a>
+                            <a href="#" class="block p-4 bg-light rounded-xl hover:shadow-md transition-shadow">
+                                <h4 class="font-semibold text-dark mb-1 hover:text-primary transition-colors">Pengumuman Penerimaan Anggota PPID Muda Tahun 2024</h4>
+                                <p class="text-gray-500 text-sm"><i class="fa-regular fa-calendar"></i> 1 Juli 2024</p>
+                            </a>
+                        </div>
+                        <a href="#" class="mt-4 inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors">
+                            Semua Pengumuman <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Download SOP -->
+                    <div class="bg-light rounded-2xl p-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent text-2xl mx-auto mb-4">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-primary mb-2">Unduh SOP PPID</h3>
+                            <p class="text-gray-600 text-sm mb-4">Standar Operasional Prosedur pelayanan informasi publik PPID Kabupaten Kepulauan Sula.</p>
+                            <a href="#" class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full font-medium transition-colors">
+                                <i class="fa-solid fa-download"></i> Unduh SOP
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kontak Layanan -->
+                    <div class="bg-light rounded-2xl p-6">
+                        <h3 class="text-lg font-bold text-primary mb-4">Kontak Layanan</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Telepon</p>
+                                    <p class="font-semibold text-dark">(0921) 12345</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">WhatsApp</p>
+                                    <p class="font-semibold text-dark">0812-3456-7890</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Email</p>
+                                    <p class="font-semibold text-dark">ppid@kepulauansula.go.id</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Permohonan Informasi -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block text-accent font-semibold mb-2">Layanan Online</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Ajukan Permohonan Informasi Secara Online</h2>
+                    <p class="text-gray-600 text-lg mb-8">
+                        Permohonan informasi publik dapat Anda ajukan secara online melalui form di bawah ini. Tim PPID akan memproses permohonan Anda paling lambat 10 hari kerja.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Gratis</h4>
+                                <p class="text-gray-600">Layanan permohonan informasi publik tidak dipungut biaya apapun.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Cepat</h4>
+                                <p class="text-gray-600">Proses permohonan informasi selesai paling lambat 10 hari kerja.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-1">Transparan</h4>
+                                <p class="text-gray-600">Status permohonan dapat Anda pantau secara realtime.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Form Permohonan Informasi</h3>
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Masukkan nama lengkap">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor KTP *</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Masukkan nomor KTP">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Email *</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Masukkan alamat email">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon/HP *</label>
+                            <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Masukkan nomor telepon">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Pekerjaan *</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                <option value="">Pilih pekerjaan</option>
+                                <option value="swasta">Karyawan Swasta</option>
+                                <option value="pns">PNS/TNI/Polri</option>
+                                <option value="pelajar">Pelajar/Mahasiswa</option>
+                                <option value="wiraswasta">Wiraswasta</option>
+                                <option value="lembaga">Lembaga/Organisasi</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Rincian Informasi yang Diminta *</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Jelaskan secara rinci informasi yang Anda butuhkan"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tujuan Penggunaan Informasi *</label>
+                            <textarea rows="2" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Tujuan penggunaan informasi"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Cara Memperoleh Informasi *</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                <option value="">Pilih cara memperoleh informasi</option>
+                                <option value="melihat">Melihat/Membaca/Mendengarkan</option>
+                                <option value="salinan">Mendapatkan Salinan Informasi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Bentuk Informasi *</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                <option value="">Pilih bentuk informasi</option>
+                                <option value="hardcopy">Hardcopy (cetak)</option>
+                                <option value="softcopy">Softcopy (file digital)</option>
+                            </select>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <input type="checkbox" id="agreement" class="mt-1">
+                            <label for="agreement" class="text-sm text-gray-600">
+                                Saya menyatakan bahwa data yang diisikan adalah benar dan saya bersedia mematuhi ketentuan yang berlaku.
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Permohonan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block text-accent font-semibold mb-2">Pertanyaan Umum</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Frequently Asked Questions (FAQ)</h2>
+                <p class="text-gray-600 text-lg">Pertanyaan yang sering diajukan oleh masyarakat mengenai layanan PPID Kabupaten Kepulauan Sula.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-primary bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span>Apa itu PPID?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 py-4 text-gray-600">
+                            PPID (Pejabat Pengelola Informasi dan Dokumentasi) adalah pejabat yang bertanggung jawab di bidang penyimpanan, pendokumentasian, penyediaan, dan pelayanan informasi publik di badan publik sesuai dengan Undang-Undang No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-primary bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span>Siapa yang dapat mengajukan permohonan informasi publik?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 py-4 text-gray-600">
+                            Setiap orang dan/atau kelompok orang Indonesia dan badan hukum Indonesia berhak mengajukan permohonan informasi publik kepada badan publik sesuai dengan ketentuan Undang-Undang Keterbukaan Informasi Publik.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-primary bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span>Berapa lama waktu yang dibutuhkan untuk memproses permohonan informasi?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 py-4 text-gray-600">
+                            Informasi yang diminta akan diberikan paling lambat 10 (sepuluh) hari kerja sejak permohonan diterima. Dalam kondisi tertentu, jangka waktu dapat diperpanjang selama paling lama 7 (tujuh) hari kerja dengan pemberitahuan tertulis kepada pemohon.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-primary bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span>Apakah permohonan informasi publik dikenakan biaya?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 py-4 text-gray-600">
+                            Pada dasarnya layanan permohonan informasi publik tidak dipungut biaya. Namun pemohon dapat dikenakan biaya penggantian biaya cetak atau penggantian biaya pengiriman informasi sesuai dengan ketentuan yang berlaku.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-primary bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span>Apa yang harus dilakukan jika permohonan informasi ditolak?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 py-4 text-gray-600">
+                            Jika pemohon tidak puas atas penolakan permohonan informasi, pemohon dapat mengajukan keberatan kepada PPID paling lambat 10 (sepuluh) hari kerja sejak penolakan diterima. Apabila keberatan tidak ditanggapi atau pemohon tetap tidak puas, pemohon dapat mengajukan sengketa informasi kepada Komisi Informasi.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-primary bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span>Bagaimana cara mengajukan pengajuan keberatan?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-6 py-4 text-gray-600">
+                            Pengajuan keberatan dapat dilakukan secara online melalui website PPID atau secara tertulis langsung ke kantor PPID dengan melampu salinan bukti permohonan informasi dan alasan keberatan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peraturan Terkait -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block text-accent font-semibold mb-2">Dasar Hukum</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Peraturan Terkait</h2>
+                <p class="text-gray-600 text-lg">Dasar hukum dan peraturan yang menjadi acuan pelaksanaan layanan PPID Kabupaten Kepulauan Sula.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Peraturan 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-danger/10 rounded-full flex items-center justify-center text-danger text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">UU No. 14 Tahun 2008</h3>
+                    <p class="text-gray-600 text-sm mb-4">Tentang Keterbukaan Informasi Publik</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors">
+                        <i class="fa-solid fa-download"></i> Unduh
+                    </a>
+                </div>
+
+                <!-- Peraturan 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">PP No. 61 Tahun 2010</h3>
+                    <p class="text-gray-600 text-sm mb-4">Tentang Pelaksanaan Undang-Undang Keterbukaan Informasi Publik</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors">
+                        <i class="fa-solid fa-download"></i> Unduh
+                    </a>
+                </div>
+
+                <!-- Peraturan 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center text-success text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-gavel"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">Perbup No. 12 Tahun 2019</h3>
+                    <p class="text-gray-600 text-sm mb-4">Tentang PPID Kabupaten Kepulauan Sula</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors">
+                        <i class="fa-solid fa-download"></i> Unduh
+                    </a>
+                </div>
+
+                <!-- Peraturan 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center text-accent text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-primary mb-2">SOP Layanan PPID</h3>
+                    <p class="text-gray-600 text-sm mb-4">Standar Operasional Prosedur Layanan Informasi Publik</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-medium hover:text-secondary transition-colors">
+                        <i class="fa-solid fa-download"></i> Unduh
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Tentang PPID -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://picsum.photos/id/237/60/60" alt="Logo Kabupaten Kepulauan Sula" class="h-12 w-12 rounded-full">
+                        <div>
+                            <h3 class="text-lg font-bold">PPID Diskominfo</h3>
+                            <p class="text-sm text-gray-400">Kabupaten Kepulauan Sula</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">Pejabat Pengelola Informasi dan Dokumentasi Dinas Komunikasi dan Informatika Kabupaten Kepulauan Sula menyediakan layanan informasi publik yang transparan dan akuntabel.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Layanan -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Layanan PPID</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Permohonan Informasi</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Cek Status Permohonan</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Pengajuan Keberatan</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Daftar Informasi Publik</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Sengketa Informasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tautan Cepat -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Beranda</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Profil PPID</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Peraturan</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Laporan PPID</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Kontak Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Kontak Kami</h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-location-dot text-accent mt-1"></i>
+                            <span class="text-gray-300">Jl. Trans Sula, Desa Falahu, Kec. Sanana, Kab. Kepulauan Sula, Maluku Utara 97791</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-phone text-accent mt-1"></i>
+                            <span class="text-gray-300">(0921) 12345</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-brands fa-whatsapp text-accent mt-1"></i>
+                            <span class="text-gray-300">0812-3456-7890</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-envelope text-accent mt-1"></i>
+                            <span class="text-gray-300">ppid@kepulauansula.go.id</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fa-regular fa-clock text-accent mt-1"></i>
+                            <span class="text-gray-300">Senin - Jumat: 08.00 - 16.00 WIT</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">Copyright &copy; 2024 PPID Dinas Komunikasi dan Informatika Kabupaten Kepulauan Sula. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-accent text-sm transition-colors">Peta Situs</a>
+                    <a href="#" class="text-gray-400 hover:text-accent text-sm transition-colors">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 hover:text-accent text-sm transition-colors">Syarat dan Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <button id="back-to-top" class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg hover:bg-primary/90 transition-all opacity-0 invisible">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
+        <a href="https://wa.me/6281234567890" target="_blank" class="w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg hover:bg-green-600 transition-all">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Waktu realtime
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Jayapura'
+            };
+            document.getElementById('current-time').textContent = now.toLocaleDateString('id-ID', options) + ' WIT';
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        // Sticky Navbar
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-0', 'shadow-md');
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('py-2', 'shadow-lg');
+                navbar.classList.add('py-0', 'shadow-md');
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let mobileMenuOpen = false;
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuOpen = !mobileMenuOpen;
+            if (mobileMenuOpen) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                mobileMenuButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            } else {
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+        });
+
+        // Mobile Dropdown
+        const mobileDropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        mobileDropdownBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Statistik Counter Animasi
+        const statisticItems = document.querySelectorAll('.statistic-item .text-4xl');
+        let animated = false;
+
+        function animateCounter() {
+            if (animated) return;
+            
+            const statsSection = document.querySelector('.statistic-item').closest('section');
+            const sectionTop = statsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+                animated = true;
+                statisticItems.forEach(item => {
+                    const target = parseInt(item.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            item.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            item.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animateCounter);
+        animateCounter();
+
+        // FAQ Accordion
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                const isOpen = content.style.maxHeight;
+                
+                // Close all FAQ
+                document.querySelectorAll('.faq-content').forEach(c => {
+                    c.style.maxHeight = null;
+                });
+                document.querySelectorAll('.faq-btn i').forEach(i => {
+                    i.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked FAQ if not already open
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Back to Top
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
